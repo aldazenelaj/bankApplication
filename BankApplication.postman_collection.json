@@ -1,0 +1,342 @@
+{
+	"info": {
+		"_postman_id": "5b5ead5e-c607-4629-81e9-7e0ab9efea51",
+		"name": "BankApplication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28727780"
+	},
+	"item": [
+		{
+			"name": "usermanagement",
+			"item": [
+				{
+					"name": "add user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQkFOS0VSIiwic3ViIjoiYWxkYSIsImlhdCI6MTcxNTc3NjA4MCwiZXhwIjoxNzE1ODYyNDgwfQ.IICXGwK1ZWnG_xNCcgfqMRIwcTqdTcNkhcXArp6I0c8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n        \"username\": \"erere\",\r\n        \"password\": \"tes\",\r\n        \"name\": \"test\",\r\n        \"lastName\":  \"test\",\r\n        \"email\": \"test\",\r\n        \"role\":null\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8080/usermanagement/user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usermanagement",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQkFOS0VSIiwic3ViIjoiYWxkYSIsImlhdCI6MTcxNTc3NjA4MCwiZXhwIjoxNzE1ODYyNDgwfQ.IICXGwK1ZWnG_xNCcgfqMRIwcTqdTcNkhcXArp6I0c8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"username\": \"usernametest\",\r\n    \"password\": \"test\",\r\n    \"name\": \"testUpdate\",\r\n    \"lastName\": \"test\",\r\n    \"email\": \"test@test.com\",\r\n    \"role\": {\r\n        \"id\": 3,\r\n        \"rolename\": \"CLIENT\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8080/usermanagement/user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usermanagement",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transaction",
+			"item": [
+				{
+					"name": "createBankAccountApplication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQ0xJRU5UIiwic3ViIjoiYWxkYSIsImlhdCI6MTcxNTgxODQ0MiwiZXhwIjoxNzE1OTA0ODQyfQ.CFXJdePMboZpviLPJknNKfrXOibSD2Pe41j3tx6dkyY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":1,\r\n    \"bankAccountType\":{\r\n        \"id\":1,\r\n        \"type\":\"CURRENT\"\r\n    },\r\n    \"currency\":{\r\n        \"id\":1,\r\n        \"type\":\"ALL\"\r\n    },\r\n    \"status\":\"REQUESTED\",\r\n    \"bank\":{\r\n        \"id\":1,\r\n        \"bankCode\":\"code\",\r\n        \"country\":{\r\n             \"id\":1,\r\n             \"countryCode\":\"AL\",\r\n             \"country\":\"Albania\"\r\n        }\r\n    }\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8080/transaction/bank/account/application",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction",
+								"bank",
+								"account",
+								"application"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "approveOrDenyBankApplication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQkFOS0VSIiwic3ViIjoiYWxkYSIsImlhdCI6MTcxNTgyMTk4NiwiZXhwIjoxNzE1OTA4Mzg2fQ.jmoFzUHNQRiGW6y61G5q34IEt0LZHFTFSQd3QARXzRE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bankApplicationId\":3,\r\n    \"action\":\"APPROVE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8080/transaction/bank/account/application/action",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction",
+								"bank",
+								"account",
+								"application",
+								"action"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createCardApplication",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQ0xJRU5UIiwic3ViIjoiYWxkYSIsImlhdCI6MTcxNTg0MjM3MSwiZXhwIjoxNzE1OTI4NzcxfQ.DxnaEi-ub42WPP6NSPwtwgffoHlyyY3Vg0CR5vfDDKQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":1,\r\n    \"monthlySalary\":1000,\r\n    \"amountLimit\":1000,\r\n    \"cardType\": {\r\n        \"id\":1,\r\n        \"type\":\"DEBIT\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8080/transaction/bank/card/application",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction",
+								"bank",
+								"card",
+								"application"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createCreditCard",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQ0xJRU5UIiwic3ViIjoiYWxkYSIsImlhdCI6MTcxNTg0MjM3MSwiZXhwIjoxNzE1OTI4NzcxfQ.DxnaEi-ub42WPP6NSPwtwgffoHlyyY3Vg0CR5vfDDKQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":1,\r\n    \"monthlySalary\":1000,\r\n    \"amountLimit\":1000,\r\n    \"cardType\": {\r\n        \"id\":2,\r\n        \"type\":\"CREDIT\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8080/transaction/bank/card/application",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction",
+								"bank",
+								"card",
+								"application"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQ0xJRU5UIiwic3ViIjoiYWxkYSIsImlhdCI6MTcxNTg0MjM3MSwiZXhwIjoxNzE1OTI4NzcxfQ.DxnaEi-ub42WPP6NSPwtwgffoHlyyY3Vg0CR5vfDDKQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cardApplicationId\":3,\r\n    \"action\":\"APPROVE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:8080/transaction/bank/card/application/action",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction",
+								"bank",
+								"card",
+								"application",
+								"action"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
